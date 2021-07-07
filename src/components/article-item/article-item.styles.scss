@@ -1,0 +1,41 @@
+.article-container {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+	padding: 25px;
+	-moz-osx-font-smoothing: grayscale;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	transition: transform 0.25s ease-out;
+
+	.title {
+		padding-bottom: 10px;
+		font-family: "Lato-Bold", sans-serif;
+		font-size: 1.175rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		line-height: 1.875rem;
+
+		color: #0e1114;
+	}
+	.description {
+		margin: 0px;
+
+		font-size: 1rem;
+		line-height: 1.375rem;
+
+		color: #474f54;
+	}
+
+	.produced {
+		padding-bottom: 20px;
+		font-family: "Lato-Bold", sans-serif;
+		color: #24629e;
+		margin-top: 16px;
+	}
+}
+
+.article-container:hover {
+	transform: scale(1.05);
+}

@@ -1,0 +1,19 @@
+.search-container {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	background-color: #fff;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+	margin-bottom: 30px;
+
+	.searchIcon {
+		width: 24px;
+		height: 24px;
+	}
+	.search {
+		width: 100%;
+		border: none;
+		height: 25px;
+		padding: 0px 10px;
+	}
+}
