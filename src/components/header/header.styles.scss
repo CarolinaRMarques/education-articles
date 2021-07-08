@@ -1,9 +1,10 @@
 .header-container {
 	height: 70px;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
+	overflow: inherit;
 	padding: 20px 80px;
 	.title {
 		font-size: 25px;

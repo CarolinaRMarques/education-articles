@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectWishlistItems } from "../../redux/wishlist/wishlist.selector";
-import { WishlistItem } from "../wishlist-item/wishlist-item.component";
 
-const WishlistDropdown = ({ wishlistItems }) => (
+import { selectWishlistItems } from "../../redux/wishlist/wishlist.selector";
+import WishlistItem from "../wishlist-item/wishlist-item.component";
+
+const WishlistDropdown = ({ wishlistItems, clearArticle }) => (
 	<div className="wishlist-dropdown">
 		<div className="items">
 			{wishlistItems.length ? (
@@ -12,7 +13,7 @@ const WishlistDropdown = ({ wishlistItems }) => (
 					<WishlistItem key={article.id} item={article} />
 				))
 			) : (
-				<span className="empty-message">Your cart is empty</span>
+				<span className="empty-message">Wishlist is empty!</span>
 			)}
 		</div>
 	</div>

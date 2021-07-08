@@ -2,6 +2,7 @@ import React from "react";
 import { ArticleList } from "../../components/article-list/article-list.component";
 import { SearchBox } from "../../components/search-box/search-box.component";
 import articles from "../../data/articles.json";
+import Header from "../../components/header/header.component";
 import "./homepage.styles.scss";
 class HomePage extends React.Component {
 	constructor() {
@@ -26,6 +27,7 @@ class HomePage extends React.Component {
 
 		return (
 			<div className="container">
+				<Header />
 				<SearchBox
 					placeholder="Search Article"
 					handleChange={this.handleChange}
