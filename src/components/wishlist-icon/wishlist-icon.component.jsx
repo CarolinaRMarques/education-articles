@@ -9,17 +9,17 @@ import { selectWishlistItemsCount } from "../../redux/wishlist/wishlist.selector
 import "./wishlist-icon.styles.scss";
 
 const WishlistIcon = ({ toggleWishlistHidden, itemCount }) => (
-	<div className="icon" onClick={toggleWishlistHidden}>
+	<button className="for-icon" onClick={toggleWishlistHidden}>
 		<Wishlist className="wishlist-icon" />
 		<span className="item-count">{itemCount}</span>
-	</div>
+	</button>
 );
 
 const mapDispatchToProps = (dispatch) => ({
 	toggleWishlistHidden: () => dispatch(toggleWishlistHidden()),
 });
 
-const mapStateToProps = (state) => ({
-	itemCount: selectWishlistItemsCount(state),
+const mapStateToProps = createStructuredSelector({
+	itemCount: selectWishlistItemsCount,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(WishlistIcon);

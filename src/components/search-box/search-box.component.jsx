@@ -1,9 +1,8 @@
 import React from "react";
 import "./search-box.styles.scss";
 import { ReactComponent as SearchIcon } from "../../assets/search.svg";
-import { connect } from "react-redux";
 
-const SearchBox = ({ placeholder, handleChange }) => (
+export const SearchBox = ({ placeholder, handleChange }) => (
 	<div className="search-container">
 		<SearchIcon className="searchIcon" />
 		<input
@@ -14,5 +13,3 @@ const SearchBox = ({ placeholder, handleChange }) => (
 		/>
 	</div>
 );
-
-export default connect()(SearchBox);

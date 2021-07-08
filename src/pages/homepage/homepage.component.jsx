@@ -1,6 +1,6 @@
 import React from "react";
-import ArticleList from "../../components/article-list/article-list.component";
-import SearchBox from "../../components/search-box/search-box.component";
+import { ArticleList } from "../../components/article-list/article-list.component";
+import { SearchBox } from "../../components/search-box/search-box.component";
 import articles from "../../data/articles.json";
 import "./homepage.styles.scss";
 class HomePage extends React.Component {

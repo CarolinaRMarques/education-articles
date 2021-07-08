@@ -14,7 +14,6 @@ const wishlistReducer = (state = INITIAL_STATE, action) => {
 				hidden: !state.hidden,
 			};
 		case WishlistActionTypes.ADD_ARTICLE:
-			debugger;
 			return {
 				...state,
 				wishlistItems: addArticle(state.wishlistItems, action.payload),
