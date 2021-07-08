@@ -1,4 +1,4 @@
-import { addArticle, removeArticle } from "./wishlist.actions";
+import { addArticle, removeArticle } from "./wishlist.utils";
 import WishlistActionTypes from "./wishlist.types";
 
 const INITIAL_STATE = {
@@ -14,6 +14,7 @@ const wishlistReducer = (state = INITIAL_STATE, action) => {
 				hidden: !state.hidden,
 			};
 		case WishlistActionTypes.ADD_ARTICLE:
+			debugger;
 			return {
 				...state,
 				wishlistItems: addArticle(state.wishlistItems, action.payload),

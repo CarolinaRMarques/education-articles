@@ -3,9 +3,9 @@ export const addArticle = (wishlistItems, articleToAdd) => {
 		(article) => article.id === articleToAdd.id
 	);
 	if (existingItem) {
-		return;
+		return [...wishlistItems];
 	}
-	return [...wishlistItems, { ...articleToAdd, quantity: 1 }];
+	return [...wishlistItems, { ...articleToAdd }];
 };
 
 export const removeArticle = (wishlistItems, articleToRemove) => {

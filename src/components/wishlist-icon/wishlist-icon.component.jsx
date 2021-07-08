@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
 	toggleWishlistHidden: () => dispatch(toggleWishlistHidden()),
 });
 
-const mapStateToProps = createStructuredSelector({
-	itemCount: selectWishlistItemsCount,
+const mapStateToProps = (state) => ({
+	itemCount: selectWishlistItemsCount(state),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(WishlistIcon);

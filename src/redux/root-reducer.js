@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 
-import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import wishlistReducer from "./wishlist/wishlist.reducer";
@@ -15,4 +14,4 @@ const rootReducer = combineReducers({
 	wishlist: wishlistReducer,
 });
 
-export default persistReducer(persistConfig, rootReducer);
+export default rootReducer;

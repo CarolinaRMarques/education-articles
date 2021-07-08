@@ -1,7 +1,6 @@
 import React from "react";
 import "./article-item.styles.scss";
 import { addArticle } from "../../redux/wishlist/wishlist.actions";
-import ButtonWishlist from "../button-wishlist/button-wishlist.component";
 import { connect } from "react-redux";
 
 const ArticleItem = ({ article, dispatch }) => (

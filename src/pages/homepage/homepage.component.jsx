@@ -3,7 +3,6 @@ import ArticleList from "../../components/article-list/article-list.component";
 import SearchBox from "../../components/search-box/search-box.component";
 import articles from "../../data/articles.json";
 import "./homepage.styles.scss";
-import { connect } from "react-redux";
 class HomePage extends React.Component {
 	constructor() {
 		super();
@@ -37,4 +36,4 @@ class HomePage extends React.Component {
 	}
 }
 
-export default connect()(HomePage);
+export default HomePage;

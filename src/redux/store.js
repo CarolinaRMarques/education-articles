@@ -1,7 +1,6 @@
 import logger from "redux-logger";
-import { persistStore } from "redux-persist";
 
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
 
 import rootReducer from "./root-reducer";
 
@@ -11,10 +10,11 @@ if (process.env.NODE_ENV === "development") {
 	middlewares.push(logger);
 }
 
-export const store = createStore(rootReducer, applyMiddleware(...middlewares));
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const persistor = persistStore(store);
+export const store = createStore(
+	rootReducer,
+	composeEnhancer(applyMiddleware(...middlewares))
+);
 
-const toExport = { store, persistor };
-
-export default toExport;
+export default store;

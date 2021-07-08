@@ -13,10 +13,8 @@ export const selectWishlistHidden = createSelector(
 );
 
 export const selectWishlistItemsCount = createSelector(
-	[selectWishlist],
-	(wishlistItems) =>
-		wishlistItems.reduce(
-			(accumulatedQuantity, article) => accumulatedQuantity + article.quantity,
-			0
-		)
+	[selectWishlistItems],
+	(wishlistItems) => {
+		return wishlistItems.length;
+	}
 );
