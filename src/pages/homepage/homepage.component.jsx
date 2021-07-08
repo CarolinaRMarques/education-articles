@@ -1,10 +1,9 @@
 import React from "react";
-import { ArticleList } from "../../components/article-list/article-list.component";
-import { SearchBox } from "../../components/search-box/search-box.component";
-import Header from "../../components/header/header.component";
+import ArticleList from "../../components/article-list/article-list.component";
+import SearchBox from "../../components/search-box/search-box.component";
 import articles from "../../data/articles.json";
 import "./homepage.styles.scss";
-
+import { connect } from "react-redux";
 class HomePage extends React.Component {
 	constructor() {
 		super();
@@ -25,9 +24,9 @@ class HomePage extends React.Component {
 		const filteredArticles = articles.filter((article) =>
 			article.title.toLowerCase().includes(searchField.toLowerCase())
 		);
+
 		return (
 			<div className="container">
-				<Header />
 				<SearchBox
 					placeholder="Search Article"
 					handleChange={this.handleChange}
@@ -38,4 +37,4 @@ class HomePage extends React.Component {
 	}
 }
 
-export default HomePage;
+export default connect()(HomePage);

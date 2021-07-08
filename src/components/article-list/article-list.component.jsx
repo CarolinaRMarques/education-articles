@@ -1,10 +1,13 @@
 import "./article-list.styles.scss";
-import { ArticleItem } from "../article-item/article-item.component";
+import ArticleItem from "../article-item/article-item.component";
+import { connect } from "react-redux";
 
-export const ArticleList = (props) => (
+const ArticleList = (props) => (
 	<div className="article-list">
 		{props.articles.map((article) => (
 			<ArticleItem key={article.id} article={article} />
 		))}
 	</div>
 );
+
+export default connect()(ArticleList);

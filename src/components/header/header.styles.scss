@@ -1,14 +1,11 @@
 .header-container {
 	height: 70px;
-	width: 100%;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 25px;
+
+	padding: 20px 80px;
 	.title {
-		font-size: 20px;
-	}
-	.option {
-		padding: 10px 15px;
-		cursor: pointer;
+		font-size: 25px;
 	}
 }
