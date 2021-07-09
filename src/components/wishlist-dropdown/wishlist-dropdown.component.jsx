@@ -4,8 +4,9 @@ import { createStructuredSelector } from "reselect";
 
 import { selectWishlistItems } from "../../redux/wishlist/wishlist.selector";
 import WishlistItem from "../wishlist-item/wishlist-item.component";
+import "./wishlist-dropdown.styles.scss";
 
-const WishlistDropdown = ({ wishlistItems, clearArticle }) => (
+const WishlistDropdown = ({ wishlistItems }) => (
 	<div className="wishlist-dropdown">
 		<div className="items">
 			{wishlistItems.length ? (
