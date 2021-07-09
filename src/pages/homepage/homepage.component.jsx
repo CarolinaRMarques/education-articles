@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { ArticleList } from "../../components/article-list/article-list.component";
 import Header from "../../components/header/header.component";
-import { SearchBox } from "../../components/search-box/search-box.component";
-import allArticles from "../../data/articles.json";
 import { Pagination } from "../../components/pagination/pagination.component";
+import { SearchBox } from "../../components/search-box/search-box.component";
+import { handleSearch } from "../../redux/articles/articles.actions";
+import {
+	selectFilteredItems,
+	selectSearchField,
+} from "../../redux/articles/articles.selector";
+
 import "./homepage.styles.scss";
 
-const HomePage = () => {
-	const [articles, setArticles] = useState([]);
-	const [searchField, setSearchField] = useState("");
+const HomePage = ({ handleSearch, searchField, filteredArticles }) => {
 	const [currentPage, setCurrentPage] = useState(1);
-	const [articlesPerPage] = useState(3);
+	const articlesPerPage = 3;
+	const handleChange = (event) => {
+		handleSearch(event.target.value);
+	};
 
-	useEffect(() => {
-		setArticles(allArticles);
-	}, []);
-
-	const filteredArticles = articles.filter((article) =>
-		article.title.toLowerCase().includes(searchField.toLowerCase())
-	);
+	console.log("Search filtered: ", filteredArticles);
 
 	const indexOfLastArticle = currentPage * articlesPerPage;
 	const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
@@ -28,9 +30,8 @@ const HomePage = () => {
 		indexOfFirstArticle,
 		indexOfLastArticle
 	);
-	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-	const handleChange = (event) => setSearchField(event.target.value);
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 	return (
 		<div className="container">
@@ -39,11 +40,19 @@ const HomePage = () => {
 			<ArticleList articles={currentArticle} />
 			<Pagination
 				articlesPerPage={articlesPerPage}
-				totalArticles={articles.length}
+				totalArticles={filteredArticles.length}
 				paginate={paginate}
 			/>
 		</div>
 	);
 };
 
-export default HomePage;
+const mapDispatchToProps = (dispatch) => ({
+	handleSearch: (searchField) => dispatch(handleSearch(searchField)),
+});
+
+const mapStateToProps = createStructuredSelector({
+	searchField: selectSearchField,
+	filteredArticles: selectFilteredItems,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

@@ -1,0 +1,4 @@
+export const ArticlesTypes = {
+	HANDLE_SEARCH: "HANDLE_SEARCH",
+	HANDLE_PAGINATION: "HANDLE_PAGINATION",
+};
