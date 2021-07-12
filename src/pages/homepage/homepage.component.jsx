@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -19,17 +18,7 @@ import {
 
 import "./homepage.styles.scss";
 
-const HomePage = ({
-	handleSearch,
-	filteredArticles,
-	currentArticle,
-	currentPage,
-	fetchCurrentArticles,
-}) => {
-	useEffect(() => {
-		fetchCurrentArticles(currentPage);
-	}, [fetchCurrentArticles, currentPage]);
-
+const HomePage = ({ handleSearch, filteredArticles, currentArticle }) => {
 	const handleChange = (event) => {
 		handleSearch(event.target.value);
 	};
