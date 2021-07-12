@@ -44,9 +44,11 @@
 		background-size: contain;
 		background-color: lightblue;
 	}
-	.wishlist:hover {
+
+	.wishlist-not-added:hover {
 		border: 1px solid #124c7d;
 	}
+
 	.title {
 		padding-bottom: 10px;
 		font-family: "Lato-Bold", sans-serif;
