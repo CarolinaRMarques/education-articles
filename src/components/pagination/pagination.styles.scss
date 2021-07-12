@@ -1,19 +1,20 @@
 /* Pagination links */
-.pagination a {
+.pagination button {
 	color: black;
 	float: left;
 	padding: 8px 16px;
 	text-decoration: none;
 	transition: background-color 0.3s;
+	background-color: transparent;
 }
 
 /* Style the active/current link */
-.pagination a.active {
+.pagination button.active {
 	background-color: dodgerblue;
 	color: white;
 }
 
 /* Add a grey background color on mouse-over */
-.pagination a:hover:not(.active) {
+.pagination button:hover:not(.active) {
 	background-color: #ddd;
 }

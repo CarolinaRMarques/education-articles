@@ -1,10 +1,12 @@
-import allArticles from "../../data/articles.json";
+import articles from "../../data/articles.json";
 import { ArticlesTypes } from "./articles.types";
-import { filterArticles } from "./articles.utils";
+import { filterArticles, findCurrentArticle } from "./articles.utils";
 
 const INITIAL_STATE = {
-	filteredArticles: allArticles,
+	filteredArticles: articles,
 	searchField: "",
+	currentPage: 1,
+	currentArticle: [],
 };
 
 const ArticleReducer = (state = INITIAL_STATE, action) => {
@@ -17,6 +19,19 @@ const ArticleReducer = (state = INITIAL_STATE, action) => {
 					state.filteredArticles,
 					action.payload
 				),
+			};
+		case ArticlesTypes.CURRENT_ARTICLE:
+			return {
+				...state,
+				currentArticle: findCurrentArticle(
+					state.filteredArticles,
+					action.payload
+				),
+			};
+		case ArticlesTypes.GO_TO:
+			return {
+				...state,
+				currentPage: action.payload,
 			};
 
 		default:
